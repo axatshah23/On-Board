@@ -1,0 +1,131 @@
+<!-- The HTML file is created by 19IT126-Axat Shah. All the CSS as well as JS files(except RecordRTC.js) have been also created by the author.-->
+<!-- This is the board page-->
+<!-- Created on: 21/02/2021-->
+<!-- Last Modified on: 27/02/2021-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>On-Board</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="icon" type="image/jpg" href="icons/On-Board.png">
+
+  </head>
+  <body>
+
+    <div id="sidepanelin" onclick="toggle_sidepanel()"><img src="board icons/Double Chevron Right.svg" width="100%" height="100%"></div>
+
+    <div id="toolbox">
+
+      <div id="toolboxclose">
+        <div id="sidepanelout" onclick="toggle_sidepanel()"><img id="reverseimg" src="board icons/Double Chevron Right.svg" width="100%" height="100%"></div>
+      </div>
+      
+        <div id="toolscontainer">
+          <h5>Tools</h5>
+          <button class="tools" id="pencil" onclick="start_pencil()"><img id="icon" src="board icons/Pen.svg"></button>
+          <button class="tools" id="eraser" onclick="start_eraser()"><img id="icon" style="width:21px;height:21px" src="board icons/Eraser.png"></button>
+          <button class="tools" onclick="document.body.requestFullscreen();full_screen=true"><img id="icon" src="board icons/Fullscreen.svg"></button>
+          <button class="tools" onclick="resize()"><img id="icon" src="board icons/Expand.svg"></button>
+        </div>
+
+		    <div id="drawingtools">
+			     <h5>Drawing Tools</h5>
+			     <button class="tools" id="lines" onclick="start_line_drawing()" style="width:100%">Draw Lines</button>
+			     <button class="tools" id="circle" onClick="start_circle_drawing()" style="width: 100%">Draw Circles</button>
+  			   <button class="tools" id="rectangle" onClick="start_rect_drawing()" style="width: 100%">Draw Rectangles</button>
+				   <button class="tools" id="select" onClick="start_select_function()" style="width: 100%">Select</button>
+				<button class="tools" id="text" onClick="start_text_input()" style="width: 100%">Insert Text</button>
+		    </div>
+
+        <div id="toolproperties">
+          <h5>Tool Properties</h5>
+          <div id="properties" style="width:85%">Stroke Size:<input id="strokewidth"  value="5" type="range" min="1" max="100" placeholder="Example: 1"></input></div>
+          <div id="properties" style="width:45%">Pen Color:<input id="strokecolor" value="#000000" type="color"></div>
+          <div id="properties" style="width:45%">Board Color:<input id="boardcolor" value="#ffffff" type="color"></div>
+        </div>
+
+        <div id="actions">
+          <h5>Actions</h5>
+          <button class="action" id="action1" onclick="clear_page(cntx)"><span class="tooltiptext" style="bottom:115%;left: 0%;">Clear Page</span><img id="icon" src="board icons/Clear.svg"></button>
+          <button class="action" id="action4" onclick="download_img()" alt="Download as .jpg"><span class="tooltiptext" style="bottom:115%;left:-100%;">Dowload Image</span><img id="icon" src="board icons/Capture.svg"></button>
+          <button class="action" id="action7" onclick="to_pdf()"><span class="tooltiptext" style="bottom:115%;right:0%;">Dowload PDF</span><img id="icon" src="board icons/Download.svg"></button>
+          <button class="action" id="action2" onclick="start_recording()"><span class="tooltiptext" style="bottom:235%;left:0%;">Start Recording</span><img id="icon" src="board icons/Record.svg"></button>
+          <button class="action" id="action10" onclick="toggle_recording()" disabled="true"><span class="tooltiptext" style="bottom:235%;left:-100%;">Pause/Resume</span><img id="icon" src="board icons/Pause.svg"></i></button>
+          <button class="action" id="action3" onclick="stop_recording()"><span class="tooltiptext" style="bottom:235%;right:0%;">Stop Recording</span><img id="icon" src="board icons/Stop.svg"></button>
+          <button class="action" id="action8" onclick="undo()"><span class="tooltiptext" style="bottom:355%;left:0%;">Undo</span><img id="icon" src="board icons/Undo.svg"></button>
+          <button class="action" id="action9" onclick="redo()"><span class="tooltiptext" style="bottom:335%;left:-100%;">Redo</span><img id="icon" src="board icons/Redo.svg"></button>
+          <button class="action" id="action5" onclick="new_page()" style="width:100%">New Page</button>
+          <button class="action" id="action6" onclick="previous_page()" style="width:100%">Previous Page</button>
+        </div>
+
+        <div id="insertimage">
+		      <h5>Insert Image:</h5>
+		      <input id="furl" style="width:100%" type="file" onchange="previewImage(this);" accept="image/*">
+	      </div>
+
+        <div id="linkholder">
+          <h5>Links</h5>
+          <button class="action" onclick="window.open('Index.html')" style="width:100%">Home</button>
+          <button class="action" onclick="window.open('Contact.html')" style="width:100%">Contact Developer</button>
+        </div>
+
+        </br>
+        <div style="font-size:12px;display:block; width:100%;float:left">
+          </br>Attributions:</br>
+            Some icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+          </br></br>
+            Many icons are also from <a href="https://www.systemuicons.com">System UIcons</a>
+        </div>
+
+    </div>
+
+    <div id="pagecontainer">
+
+      <canvas id="canvas1">
+        <p>Your Browser is not supported by this web app. We regret the inconveniance caused.</p>
+        <p>Please try one of these supported browsers:</p>
+        <p><a href="www.mozilla.org">Mozilla Firefox</a></p>
+        <p><a href="www.google.com/chrome">Google Chrome</a></p>
+        <p><a href="#"></a></p>
+      </canvas>
+
+      <canvas id="canvas2" height="0" width="0"></canvas>
+
+      <canvas id="canvas3" height="0" width="0">
+        <p>Your Browser is not supported by this web app. We regret the inconveniance caused.</p>
+        <p>Please try one of these supported browsers:</p>
+        <p><a href="www.mozilla.org">Mozilla Firefox</a></p>
+        <p><a href="www.google.com/chrome">Google Chrome</a></p>
+        <p><a href="#"></a></p>
+      </canvas>
+      
+      <div id="image_input_menu">
+        <label style="width:48%;float:left">Width:<input type="number" class="input_image_dimensions" id="input_image_width" name="input_image_width" value="300"></label>
+        <label style="width:48%;float:left">Height:<input type="number" class="input_image_dimensions" id="input_image_height" name="input_image_height" value="200"></label>
+        <h5>Preview:</h5>
+        <img id="preview" width="300" height="200">
+        <button class="action" style="width:100%" onclick="imgavailable()">Add Image to Board</button>
+      </div>
+
+      <div class="notifier" id="notifier1">
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="main.js"></script>
+
+    <script type="text/javascript" src="main2.js"></script>
+
+    <script type="text/javascript" src="RecordRTC.min.js"></script>
+
+    <script type="text/javascript" src="videocapture.js"></script>
+
+    <script type="text/javascript" src="jspdf.min.js"></script>
+
+  </body>
+</html>
