@@ -75,41 +75,49 @@ h6{
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   background-color: #fffafa;
+  font-family: Garamond, serif;
 }
 
 #toolscontainer{
   width:100%;
   float: left;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #drawingtools{
   width:100%;
   float: left;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #toolproperties{
   width: 100%;
   float: left;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #linkholder{
   width: 100%;
   float: left;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #attributions{
   width: 100%;
   float: left;
+  font-family: Garamond, serif;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #insertimage{
   width: 100%;
   float: left;
+  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
@@ -122,6 +130,7 @@ input{
 #actions{
   width: 100%;
   float: left;
+  padding-bottom: 10px;
   margin: 2%;
 }
 

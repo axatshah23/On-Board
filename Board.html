@@ -27,7 +27,7 @@
       </div>
       
         <div id="toolscontainer">
-          <h5>Tools</h5>
+          <h5 style="font-size: 18px;">Tools</h5>
           <button class="tools" id="pencil" onclick="start_pencil()"><img id="icon" src="board icons/Pen.svg"></button>
           <button class="tools" id="eraser" onclick="start_eraser()"><img id="icon" style="width:21px;height:21px" src="board icons/Eraser.png"></button>
           <button class="tools" onclick="document.body.requestFullscreen();full_screen=true"><img id="icon" src="board icons/Fullscreen.svg"></button>
@@ -35,23 +35,23 @@
         </div>
     
 		    <div id="drawingtools">
-			     <h5>Drawing Tools</h5>
-			     <button class="tools" id="lines" onclick="start_line_drawing()" style="width:100%">Draw Line</button>
-			     <button class="tools" id="circle" onClick="start_circle_drawing()" style="width: 100%">Draw Circle</button>
-  			   <button class="tools" id="rectangle" onClick="start_rect_drawing()" style="width: 100%">Draw Rectangle</button>
-				   <button class="tools" id="select" onClick="start_select_function()" style="width: 100%">Select</button>
-				<button class="tools" id="text" onClick="start_text_input()" style="width: 100%">Insert Text</button>
+			     <h5 style="font-size: 18px;">Drawing Tools</h5>
+			     <button class="tools" id="lines" onclick="start_line_drawing()" style="width:100%; font-family: Garamond, serif;">Draw Line</button>
+			     <button class="tools" id="circle" onClick="start_circle_drawing()" style="width: 100%; font-family: Garamond, serif;">Draw Circle</button>
+  			   <button class="tools" id="rectangle" onClick="start_rect_drawing()" style="width: 100%; font-family: Garamond, serif;">Draw Rectangle</button>
+				   <button class="tools" id="select" onClick="start_select_function()" style="width: 100%; font-family: Garamond, serif;">Select</button>
+				<button class="tools" id="text" onClick="start_text_input()" style="width: 100%; font-family: Garamond, serif;">Insert Text</button>
 		    </div>
 
         <div id="toolproperties">
-          <h5>Tool Properties</h5>
-          <div id="properties" style="width:85%">Stroke Size:<input id="strokewidth"  value="5" type="range" min="1" max="100" placeholder="Example: 1"></input></div>
-          <div id="properties" style="width:45%">Pen Color:<input id="strokecolor" value="#ffffff" type="color"></div>
-          <div id="properties" style="width:45%">Board Color:<input id="boardcolor" value="#1f6953" type="color"></div>
+          <h5 style="font-size: 18px;">Tool Properties</h5>
+          <div id="properties" style="width:85%">Stroke Size<input id="strokewidth"  value="5" type="range" min="1" max="100" placeholder="Example: 1"></input></div>
+          <div id="properties" style="width:45%">Pen Color<input id="strokecolor" value="#000000" type="color"></div>
+          <div id="properties" style="width:45%">Board Color<input id="boardcolor" value="#ffffff" type="color"></div>
         </div>
 
         <div id="actions">
-          <h5>Actions</h5>
+          <h5 style="font-size: 18px;">Actions</h5>
           <button class="action" id="action1" onclick="clear_page(cntx)"><span class="tooltiptext" style="bottom:115%;left: 0%;">Clear Page</span><img id="icon" src="board icons/Clear.svg"></button>
           <button class="action" id="action4" onclick="download_img()" alt="Download as .jpg"><span class="tooltiptext" style="bottom:115%;left:-100%;">Dowload Image</span><img id="icon" src="board icons/Capture.svg"></button>
           <button class="action" id="action7" onclick="to_pdf()"><span class="tooltiptext" style="bottom:115%;right:0%;">Dowload PDF</span><img id="icon" src="board icons/Download.svg"></button>
@@ -65,24 +65,17 @@
         </div>
 
         <div id="insertimage">
-		      <h5>Insert Image:</h5>
+		      <h5 style="font-size: 18px;">Insert Image</h5>
 		      <input id="furl" style="width:100%" type="file" onchange="previewImage(this);" accept="image/*">
 	      </div>
 
         <div id="linkholder">
-          <h5>Links</h5>
+          <h5 style="font-size: 18px;">Links</h5>
           <button class="action" onclick="window.open('Index.html')" style="width:100%">Home</button>
           <button class="action" onclick="window.open('Contact.html')" style="width:100%">Contact Developer</button>
         </div>
 
         </br>
-        <div style="font-size:12px;display:block; width:100%;float:left">
-          </br>Attributions:</br>
-            Some icons made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-          </br></br>
-            Many icons are also from <a href="https://www.systemuicons.com">System UIcons</a>
-        </div>
-
     </div>
 
     <div id="pagecontainer">
