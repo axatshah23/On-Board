@@ -8,7 +8,7 @@
     <title>On-Board</title>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="main.css">
 
@@ -33,7 +33,7 @@
           <button class="tools" onclick="document.body.requestFullscreen();full_screen=true"><img id="icon" src="board icons/Fullscreen.svg"></button>
           <button class="tools" onclick="resize()"><img id="icon" src="board icons/Expand.svg"></button>
         </div>
-
+    
 		    <div id="drawingtools">
 			     <h5>Drawing Tools</h5>
 			     <button class="tools" id="lines" onclick="start_line_drawing()" style="width:100%">Draw Line</button>
@@ -46,8 +46,8 @@
         <div id="toolproperties">
           <h5>Tool Properties</h5>
           <div id="properties" style="width:85%">Stroke Size:<input id="strokewidth"  value="5" type="range" min="1" max="100" placeholder="Example: 1"></input></div>
-          <div id="properties" style="width:45%">Pen Color:<input id="strokecolor" value="#000000" type="color"></div>
-          <div id="properties" style="width:45%">Board Color:<input id="boardcolor" value="#ffffff" type="color"></div>
+          <div id="properties" style="width:45%">Pen Color:<input id="strokecolor" value="#ffffff" type="color"></div>
+          <div id="properties" style="width:45%">Board Color:<input id="boardcolor" value="#1f6953" type="color"></div>
         </div>
 
         <div id="actions">
