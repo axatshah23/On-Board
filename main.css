@@ -26,7 +26,7 @@ h6{
   position: fixed;
   height: 5%;
   width: 3%;
-  margin-top: 4%;
+  margin-top: 2%;
 }
 
 #sidepanelout{
@@ -42,7 +42,7 @@ h6{
 }
 
 #logo{
-  width: 75px;
+  width: 65px;
 }
 
 #reverseimg{
@@ -56,10 +56,11 @@ h6{
 #toolbox{
   top: 10px;
   bottom: 0px;
-  height:745px;
+  height:400px;
   max-width: 200px;
   min-width: 150px;
-  width:11%;
+  max-height: 100%;
+  width:9%;
   float: left;
   visibility: visible;
   margin-left: 10px;
@@ -172,7 +173,7 @@ input{
 }
 
 .tools{
-  width: 48%;
+  width: 47%;
   margin: 1% 1% 1% 1%;
   float: left;
   padding: 2px 2px 2px 2px;

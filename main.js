@@ -15,12 +15,19 @@ var undo_arr = [];
 
 document.onload=initi();
 
+//So that no items or text of the toolbox can be selected.
+var x= document.getElementById("toolbox");
+x.style.WebkitUserSelect = "none"; // Safari
+x.style.msUserSelect = "none"; // IE 10 and IE11
+x.style.userSelect = "none"; // Standard syntax
+
 function initi() {
   resize();
   drawing_setup();
   document.getElementById("boardcolor").addEventListener("input", board_color,{passive: true});
   document.getElementById("strokecolor").addEventListener("input", stroke_properties,{passive: true});
   document.getElementById("strokewidth").addEventListener("input", stroke_properties,{passive: true});
+  document.getElementById("pagecontainer").style.cursor= "url(pen.png),auto";
   setup();
 }
 
@@ -183,6 +190,7 @@ var lstrokewidth = document.getElementById("strokewidth").value;
 var lstrokecolor = document.getElementById('strokecolor').value;
 
 function start_eraser() {
+  document.getElementById("pagecontainer").style.cursor= "url(eraser_cursor.png),auto";
   tool_toggler();
   isEraserOn=true;
   document.getElementById("strokewidth").value = estrokewidth;
@@ -201,6 +209,7 @@ function stop_eraser() {
 function start_pencil() {
   tool_toggler();
   isPencilOn=true;
+  document.getElementById("pagecontainer").style.cursor= "url(pen.png),auto";
   document.getElementById("strokewidth").value = pstrokewidth;
   document.getElementById('strokecolor').value = pstrokecolor;
   //changing button properties
@@ -325,6 +334,7 @@ async function tool_toggler() {
 //Trying line drawing
 async function start_line_drawing() {
   tool_toggler();
+  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_line);
   canv3.addEventListener("touchmove", draw_line);
   canv3.addEventListener("touchend", stop_line);
@@ -405,7 +415,7 @@ async function stop_line() {
 //Trying circle drawing
 async function start_circle_drawing() {
   tool_toggler();
-  
+  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_circle);
   canv3.addEventListener("touchmove", draw_circle);
   canv3.addEventListener("touchend", stop_circle);
@@ -500,6 +510,7 @@ async function stop_circle() {
 //Trying line drawing
 async function start_rect_drawing() {
   tool_toggler();
+  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_rect);
   canv3.addEventListener("touchmove", draw_rect);
   canv3.addEventListener("touchend", stop_rect);

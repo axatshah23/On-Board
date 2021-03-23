@@ -8,7 +8,7 @@
     <title>On-Board</title>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="main.css">
 
@@ -17,13 +17,13 @@
   </head>
   <body>
 
-    <div id="sidepanelin" onclick="toggle_sidepanel()"><img src="board icons/Double Chevron Right.svg" width="100%" height="100%"></div>
+    <div id="sidepanelin" onclick="toggle_sidepanel()"><img src="board icons/Double Chevron Right.svg" width="100%" height="100%" style="max-height: 100%;"></div>
 
     <div id="toolbox">
 
       <div id="toolboxclose">
         <div id="logoholder" onclick="toggle_sidepanel()"><img id="logo" src="icons/On-board.svg"></div>
-        <div id="sidepanelout" onclick="toggle_sidepanel()"><img id="reverseimg" src="board icons/Double Chevron Right.svg" width="100%" height="100%"></div>
+        <div id="sidepanelout" onclick="toggle_sidepanel()"><img id="reverseimg" src="board icons/Double Chevron Right.svg" width="80%" height="80%"></div>
       </div>
       
         <div id="toolscontainer">
@@ -36,11 +36,11 @@
     
 		    <div id="drawingtools">
 			     <h5 style="font-size: 18px;">Drawing Tools</h5>
-			     <button class="tools" id="lines" onclick="start_line_drawing()" style="width:100%; font-family: Garamond, serif;">Draw Line</button>
-			     <button class="tools" id="circle" onClick="start_circle_drawing()" style="width: 100%; font-family: Garamond, serif;">Draw Circle</button>
-  			   <button class="tools" id="rectangle" onClick="start_rect_drawing()" style="width: 100%; font-family: Garamond, serif;">Draw Rectangle</button>
-				   <button class="tools" id="select" onClick="start_select_function()" style="width: 100%; font-family: Garamond, serif;">Select</button>
-				<button class="tools" id="text" onClick="start_text_input()" style="width: 100%; font-family: Garamond, serif;">Insert Text</button>
+			     <button class="action" id="lines" onclick="start_line_drawing()"><span class="tooltiptext" style="bottom:115%;left: 0%;">Draw Line</span><img id="icon" src="board icons/diagonal-line.png"></button>
+			     <button class="action" id="circle" onClick="start_circle_drawing()"><span class="tooltiptext" style="bottom:115%;left:-100%;">Draw Circle</span><img id="icon" src="board icons/dry-clean.png"></button>
+  			   <button class="action" id="rectangle" onClick="start_rect_drawing()"><span class="tooltiptext" style="bottom:115%;right:0%;">Draw Rectangle</span><img id="icon" src="board icons/rectangular-shape-outline.png"></button>
+				   <button class="action" id="select" onClick="start_select_function()"><span class="tooltiptext" style="bottom:235%;left:0%;">Selection</span><img id="icon" src="board icons/selection.png"></button>
+				<button class="action" id="text" onClick="start_text_input()"><span class="tooltiptext" style="bottom:235%;left:-100%;">Insert Text</span><img id="icon" src="board icons/font.png"></button>
 		    </div>
 
         <div id="toolproperties">
@@ -60,8 +60,8 @@
           <button class="action" id="action3" onclick="stop_recording()"><span class="tooltiptext" style="bottom:235%;right:0%;">Stop Recording</span><img id="icon" src="board icons/Stop.svg"></button>
           <button class="action" id="action8" onclick="undo()"><span class="tooltiptext" style="bottom:355%;left:0%;">Undo</span><img id="icon" src="board icons/Undo.svg"></button>
           <button class="action" id="action9" onclick="redo()"><span class="tooltiptext" style="bottom:335%;left:-100%;">Redo</span><img id="icon" src="board icons/Redo.svg"></button>
-          <button class="action" id="action5" onclick="new_page()" style="width:100%">New Page</button>
-          <button class="action" id="action6" onclick="previous_page()" style="width:100%">Previous Page</button>
+          <button class="action" id="action5" onclick="new_page()" style="width:95%">New Page</button>
+          <button class="action" id="action6" onclick="previous_page()" style="width:95%">Previous Page</button>
         </div>
 
         <div id="insertimage">
