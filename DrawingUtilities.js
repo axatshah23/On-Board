@@ -23,11 +23,13 @@ x.style.userSelect = "none"; // Standard syntax
 
 function initi() {
   resize();
+  //Setting up for normal drawing
   drawing_setup();
+  //window.addEventListener("resize", resize_info);
   document.getElementById("boardcolor").addEventListener("input", board_color,{passive: true});
   document.getElementById("strokecolor").addEventListener("input", stroke_properties,{passive: true});
   document.getElementById("strokewidth").addEventListener("input", stroke_properties,{passive: true});
-  document.getElementById("pagecontainer").style.cursor= "url(pen.png),auto";
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Pen_cursor.png'),auto";
   setup();
 }
 
@@ -51,20 +53,23 @@ function setup() {
   toolbox.style.height=(window.innerHeight-44)+'px';
   board_color();
   toggle_sidepanel();
+  //start_pencil();
   toggle_sidepanel();
   update_page_image();
+  //sidein.addEventListener("mouseover",toggle_sidepanel);
+  //toolbox.addEventListener("mouseout", toggle_sidepanel);
+  //startup_instructions();
 }
 
 async function board_color() {
-   //saving original image
-  var original=cntx.getImageData(0,0,canv.width,canv.height);
+  //changing background color of canvas
   canv.style.backgroundColor = document.getElementById("boardcolor").value;
   notifier_control('please wait',"25%","80%","visible");
+  //sleep(1000);
+  //filling the canvas with a color
   cntx.fillStyle=document.getElementById("boardcolor").value;
   cntx.fillRect(0, 0, canv.width, canv.height);
   notifier_control('',"0%","0%","hidden");
-   //placing the image back on to this canvas
-  cntx.putImageData(original,0,0,0,0,canv.width,canv.height);
 }
 
 var full_screen=false;
@@ -82,7 +87,7 @@ function resize() {
 }
 
 function resize_info() {
-  if(confirm("Resizing can lead to loss of data and quality of your image. Are you sure you want to resize?")) {
+  if(confirm("Resizing can lead to loss of data and quality of your image.Do you want to resize?")) {
     resize();
   }
 }
@@ -190,7 +195,7 @@ var lstrokewidth = document.getElementById("strokewidth").value;
 var lstrokecolor = document.getElementById('strokecolor').value;
 
 function start_eraser() {
-  document.getElementById("pagecontainer").style.cursor= "url(eraser_cursor.png),auto";
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Eraser_cursor.png'),auto";
   tool_toggler();
   isEraserOn=true;
   document.getElementById("strokewidth").value = estrokewidth;
@@ -207,9 +212,9 @@ function stop_eraser() {
 
 //Toggle to pencil
 function start_pencil() {
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Pen_cursor.png'),auto";
   tool_toggler();
   isPencilOn=true;
-  document.getElementById("pagecontainer").style.cursor= "url(pen.png),auto";
   document.getElementById("strokewidth").value = pstrokewidth;
   document.getElementById('strokecolor').value = pstrokecolor;
   //changing button properties
@@ -244,9 +249,9 @@ async function loadscript(url, location, notifier_id){
 }
 
 async function startup_instructions() {
-  write_on_canvas("Welcome to On-Board.", toolbox.style.width + 2, canv.height/2);
+  write_on_canvas("Welcome to On-Board", toolbox.style.width + 2, canv.height/2);
   write_on_canvas("Start Drawing!", 200, (canv.height/2) + 40);
-  write_on_canvas("Use the reset Button in the 'Actions panel' to clear this message.", 200, (canv.height/2) + 80);
+  write_on_canvas("Use the reset Button in the 'Actions panel'(the first one) to clear this message.", 200, (canv.height/2) + 80);
 }
 
 async function write_on_canvas(string, corx, cory) {
@@ -333,8 +338,8 @@ async function tool_toggler() {
 
 //Trying line drawing
 async function start_line_drawing() {
+  document.getElementById("pagecontainer").style.cursor= 'crosshair';
   tool_toggler();
-  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_line);
   canv3.addEventListener("touchmove", draw_line);
   canv3.addEventListener("touchend", stop_line);
@@ -352,7 +357,6 @@ async function start_line_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isLineOn=true;
-  //toggle_sidepanel();
 }
 
 async function stop_line_drawing() {
@@ -414,8 +418,8 @@ async function stop_line() {
 
 //Trying circle drawing
 async function start_circle_drawing() {
+  document.getElementById("pagecontainer").style.cursor= 'crosshair';
   tool_toggler();
-  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_circle);
   canv3.addEventListener("touchmove", draw_circle);
   canv3.addEventListener("touchend", stop_circle);
@@ -433,11 +437,9 @@ async function start_circle_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isCircleOn=true;
-  
 }
 
 async function stop_circle_drawing() {
-  
   canv3.width = 0;
   canv3.height = 0;
   canv3.style.opacity=0;
@@ -456,7 +458,6 @@ async function stop_circle_drawing() {
   pstrokewidth = document.getElementById('strokewidth').value;
   pstrokecolor = document.getElementById('strokecolor').value;
   isCircleOn=false;
-  
 }
 
 async function start_circle(event) {
@@ -509,8 +510,8 @@ async function stop_circle() {
 
 //Trying line drawing
 async function start_rect_drawing() {
+  document.getElementById("pagecontainer").style.cursor= 'crosshair';
   tool_toggler();
-  document.getElementById("pagecontainer").style.cursor="crosshair";
   canv3.addEventListener("touchstart", start_rect);
   canv3.addEventListener("touchmove", draw_rect);
   canv3.addEventListener("touchend", stop_rect);
@@ -528,7 +529,6 @@ async function start_rect_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isRectOn=true;
-  //toggle_sidepanel();
 }
 
 async function stop_rect_drawing() {

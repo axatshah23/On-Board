@@ -62,7 +62,7 @@ h6{
   max-height: 100%;
   width:9%;
   float: left;
-  visibility: visible;
+  visibility: hidden;
   margin-left: 10px;
   z-index: 20;
   overflow-x: hidden;
@@ -82,44 +82,42 @@ h6{
 #toolscontainer{
   width:100%;
   float: left;
-  padding-bottom: 10px;
   margin: 1% 1%;
+  padding-bottom: 10px;
 }
 
 #drawingtools{
   width:100%;
   float: left;
-  padding-bottom: 10px;
   margin: 1% 1%;
+  padding-bottom: 10px;
 }
 
 #toolproperties{
   width: 100%;
   float: left;
-  padding-bottom: 10px;
   margin: 1% 1%;
 }
 
 #linkholder{
   width: 100%;
   float: left;
-  padding-bottom: 10px;
   margin: 1% 1%;
+  padding-bottom: 10px;
 }
 
 #attributions{
   width: 100%;
   float: left;
-  font-family: Garamond, serif;
-  padding-bottom: 10px;
   margin: 1% 1%;
+  padding-bottom: 10px;
 }
 
 #insertimage{
   width: 100%;
   float: left;
-  padding-bottom: 10px;
   margin: 1% 1%;
+  padding-bottom: 10px;
 }
 
 input{
@@ -172,8 +170,16 @@ input{
   font-size: 12px;
 }
 
+#properties2{
+  margin: 1% 1% 1% 1%;
+  float: left;
+  padding: 3px 0px 3px 0px;
+  font-size: 12px;
+  visibility: hidden;
+}
+
 .tools{
-  width: 47%;
+  width: 48%;
   margin: 1% 1% 1% 1%;
   float: left;
   padding: 2px 2px 2px 2px;
