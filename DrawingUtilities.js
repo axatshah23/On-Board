@@ -357,6 +357,7 @@ async function start_line_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isLineOn=true;
+  toggle_sidepanel();
 }
 
 async function stop_line_drawing() {
@@ -381,7 +382,6 @@ async function stop_line_drawing() {
 }
 
 async function start_line(event) {
-  toggle_sidepanel();
   event.preventDefault();
   locator(event);
   controlPoint.x=loc.x; //used to store the initial point
@@ -437,6 +437,7 @@ async function start_circle_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isCircleOn=true;
+  toggle_sidepanel();
 }
 
 async function stop_circle_drawing() {
@@ -461,7 +462,6 @@ async function stop_circle_drawing() {
 }
 
 async function start_circle(event) {
-  toggle_sidepanel();
   event.preventDefault();
   locator(event);
   controlPoint.x=loc.x; //used to store the initial point
@@ -529,6 +529,7 @@ async function start_rect_drawing() {
   document.getElementById('strokecolor').value = pstrokecolor;
   document.getElementById('strokewidth').value = pstrokewidth;
   isRectOn=true;
+  toggle_sidepanel();
 }
 
 async function stop_rect_drawing() {
@@ -553,7 +554,6 @@ async function stop_rect_drawing() {
 }
 
 async function start_rect(event) {
-  toggle_sidepanel();
   event.preventDefault();
   locator(event);
   controlPoint.x=loc.x; //used to store the initial point

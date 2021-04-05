@@ -48,22 +48,23 @@ async function start_recording() {
 
   console.log("recording started");
 
-  document.getElementById('action2').style.backgroundColor='red';
+  //document.getElementById('action2').style.backgroundColor='red';
   document.getElementById('action2').style.color='white';
-  document.body.style.backgroundColor='red';
+  document.body.style.backgroundColor='green';
 }
 
 
 async function stop_recording() {
   //stop testing
   //video.pause()
-
+  document.getElementById('action10').style.backgroundColor='white';
+  document.getElementById('action2').style.backgroundColor='white';
   //stopping recorders
   recorder.stopRecording(function() {
     var vidblob = recorder.getBlob();
     //document.getElementById('testv').src = URL.createObjectURL(blob);
     //document.getElementById('testv').parentNode.style.display = 'block';
-    invokeSaveAsDialog(vidblob,"screencast.webm");
+    invokeSaveAsDialog(vidblob,"On-Board.webm");
   });
 
   //to stop the tracks, ensuring that the user is asked permissions each time recording is started
@@ -89,17 +90,20 @@ async function track_stopper(mystream) {
 }
 
 async function toggle_recording() {
+  document.getElementById('action2').style.backgroundColor='white';
   if(!audiostream){
     document.getElementById('action10').disabled="true";
   }
   else if (recorder.getState()=="recording") {
     recorder.pauseRecording();
+    document.getElementById('action10').style.backgroundColor='red';
     notifier_control('Recording Paused',"25%","80%","visible");
-    document.body.style.backgroundColor='green';
+    document.body.style.backgroundColor='red';
   }
   else if (recorder.getState()=="paused") {
     recorder.resumeRecording();
-    document.body.style.backgroundColor='red';
+    document.getElementById('action10').style.backgroundColor='white';
+    document.body.style.backgroundColor='green';
     notifier_control('',"0%","0%","hidden");
   }
   else {//do nothing
