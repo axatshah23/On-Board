@@ -91,6 +91,7 @@ async function to_pdf() {
 
 	async	function previewImage(input){
 			// this function is to show preview of image
+      document.getElementById("pagecontainer").style.cursor= 'all-scroll';
 			tool_toggler();
 			var files = event.target.files;
 			var file = files[0];
@@ -148,7 +149,7 @@ async function setImage(x, y){
 	if(canv.width>canv.height){
 		context.font = "18px Arial";
 		context.fillStyle = "Black";
-		context.fillText("Tip:Drag The image to its desired location", 10 , canvas2.height-100);
+		context.fillText("                                                                                                          Tip: Drag the selected area to your desired location", 10, canv.height-100);
 		}
 		context.drawImage(imag, (x - (document.getElementById("input_image_width").value/2)), (y - (document.getElementById("input_image_height").value/2)), document.getElementById("input_image_width").value, document.getElementById("input_image_height").value);
 		}
@@ -224,6 +225,7 @@ async function saveimgdata(){
 		alert("First select Image to upload!");
 		}
 	notifier_control('',"0%","0%","hidden");
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Pen_cursor.png'),auto";
 }
 
 async function copy(){
@@ -236,6 +238,7 @@ async function copy(){
 
 //Trying select function
 async function start_select_function() {
+  document.getElementById("strokewidth").disabled = true;
   document.getElementById("pagecontainer").style.cursor= 'crosshair';
   tool_toggler();
   canv3.addEventListener("touchstart", start_rect_select);
@@ -253,12 +256,14 @@ async function start_select_function() {
   canv3.style.visibility='visible';
   document.getElementById('select').style.backgroundColor = "#9392FF";
   document.getElementById('strokecolor').value = pstrokecolor;
-  document.getElementById('strokewidth').value = pstrokewidth;
+  document.getElementById('strokewidth').value = 5;
   isSelectOn=true;
   toggle_sidepanel();
 }
 
 async function stop_select_function() {
+  document.getElementById("strokewidth").disabled = false;
+  document.getElementById("pagecontainer").style.cursor= 'all-scroll';
   canv3.width = 0;
   canv3.height = 0;
   canv3.style.opacity=0;
@@ -280,7 +285,6 @@ async function stop_select_function() {
 }
 
 async function start_rect_select(event) {
-  toggle_sidepanel();
   event.preventDefault();
   locator(event);
   controlPoint.x=loc.x; //used to store the initial point
@@ -312,12 +316,11 @@ async function stop_rect_select() {
 	hht = loc.y-controlPoint.y;
 	imgDataa = cntx.getImageData(controlPoint.x, controlPoint.y, wth, hht);
 	showcutcopybox();
-  toggle_sidepanel();
 }
 
 
 async function showcutcopybox(){
-	notifier_control('<button class="action" id="copy" onclick="ifcopy()"> Copy </button><button class="action" id="cut" onclick="ifcut()"> Cut </button>',"0px","0px","visible");
+	notifier_control('<button class="action" id="copy" onclick="ifcopy()">Copy </button><button class="action" id="cut" onclick="ifcut()"> Cut </button>',"0px","0px","visible");
 }
 
 async function showselectionbox(){
@@ -354,7 +357,7 @@ async function setSelImage(x, y){
 	if(canv.width>canv.height){
 		context.font = "18px Arial";
 		context.fillStyle = "Black";
-		context.fillText("Tip:Drag The selected area to its desired location", 86, canv.height-25);
+		context.fillText("                                                                                                   Tip: Drag the selected area to your desired location", 75, canv.height-50);
 	}
 	context.putImageData(imgDataa, x, y);
 }
@@ -377,6 +380,7 @@ async function saveselectdata(){
 	hideCanvass();
 	update_page_image();
   notifier_control('',"0%","0%","hidden");
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Pen_cursor.png'),auto";
 }
 
 async function hideCanvass() {
@@ -441,6 +445,7 @@ async function stop_text_movement() {
 //  pstrokecolor = document.getElementById('strokecolor').value;
   isTextOn=false;
 	notifier_control('',"0%","0%","hidden");
+  document.getElementById("pagecontainer").style.cursor= "url('board icons/Pen_cursor.png'),auto";
 }
 
 async function start_movement(event) {
@@ -488,6 +493,7 @@ async function textcancel() {
 }
 
 async function start_text_input() {
+  document.getElementById("pagecontainer").style.cursor= 'text';
 	notifier_control('<input type="text" id="txt"><br><br><button class="action" id="select_input_denial" onclick="stop_text_input()"><img id="icon" src="board icons/Cross.svg"></button><button class="action" id="select_input_confirm" onclick="start_text_movement()"><img id="icon" src="board icons/Check.svg"></button>',"0px","0px","visible");
 	document.getElementById("txt").focus();
 	tool_toggler();

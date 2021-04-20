@@ -109,6 +109,7 @@ async function toggle_sidepanel() {
   }
 }
 
+
 //drawing pre-requisites
 var loc ={x:0 , y:0};
 var controlPoint = {x:0 , y:0};   //for quadratic curve
@@ -195,6 +196,7 @@ var lstrokewidth = document.getElementById("strokewidth").value;
 var lstrokecolor = document.getElementById('strokecolor').value;
 
 function start_eraser() {
+  document.getElementById("strokecolor").disabled = true;
   document.getElementById("pagecontainer").style.cursor= "url('board icons/Eraser_cursor.png'),auto";
   tool_toggler();
   isEraserOn=true;
@@ -208,6 +210,7 @@ function stop_eraser() {
   document.getElementById('eraser').style.backgroundColor = "white";
   isEraserOn=false;
   //estrokewidth = document.getElementById('strokewidth').value;  //this is causing problems while shifting b/w different tools
+  document.getElementById("strokecolor").disabled = false;
 }
 
 //Toggle to pencil
@@ -412,7 +415,6 @@ async function stop_line() {
   cntx.closePath();
   cntx3.clearRect(0,0,canv3.width,canv3.height);
   update_page_image();
-  toggle_sidepanel();
 }
 //line drawing complete
 
@@ -504,7 +506,6 @@ async function stop_circle() {
   cntx.closePath();
   cntx3.clearRect(0,0,canv3.width,canv3.height);
   update_page_image();
-  toggle_sidepanel();
 }
 //circle drawing complete
 
@@ -592,7 +593,6 @@ async function stop_rect() {
   cntx.closePath();
   cntx3.clearRect(0,0,canv3.width,canv3.height);
   update_page_image();
-  toggle_sidepanel();
 }
 //rectangle drawing complete
 

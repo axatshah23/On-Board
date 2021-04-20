@@ -78,7 +78,7 @@ async function stop_recording() {
   document.getElementById('action10').disabled="true";
   document.getElementById('action2').style.backgroundColor='white';
   document.getElementById('action2').style.color='black';
-  alert("Refresh the page if you want to make another recording. Do not forget to dowload the recorded videos when prompted. They will otherwise be lost.");
+  alert("Click to download the recording.");
 }
 
 async function track_stopper(mystream) {
@@ -97,7 +97,7 @@ async function toggle_recording() {
   else if (recorder.getState()=="recording") {
     recorder.pauseRecording();
     document.getElementById('action10').style.backgroundColor='red';
-    notifier_control('Recording Paused',"25%","80%","visible");
+    notifier_control('RECORDING PAUSED',"25%","80%","visible");
     document.body.style.backgroundColor='red';
   }
   else if (recorder.getState()=="paused") {
